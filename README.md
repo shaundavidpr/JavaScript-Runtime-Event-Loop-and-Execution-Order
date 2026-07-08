@@ -2,15 +2,15 @@
 ----
 ## BTS of Javascript execution
 
-    JavaScript is single-threaded. It can only do one thing at a time and yet somehow it manages network requests, timers, user clicks, and animations without freezing the page. This isn't a trick its's a very specific, very predictable execution model.
+JavaScript is single-threaded. It can only do one thing at a time and yet somehow it manages network requests, timers, user clicks, and animations without freezing the page. This isn't a trick its's a very specific, very predictable execution model.
 ----
 ## What is the JavaScript call stack and how it processes synchronous code?
-    The call stack is javascript's mechanism for tracking what function is currently executing works with the lifo structure.
+The call stack is javascript's mechanism for tracking what function is currently executing works with the lifo structure.
 ### Processing Synchronous code:
-    When a function is called, a new "frame" for it is pushed onto the top of the stack. If that function calls another function, the new function's frame goes on top of it. When a function finishes executing its frame is popped off the stack, and control goes back to whatever function is now on top. This continues until the call stack is completely empty.
+When a function is called, a new "frame" for it is pushed onto the top of the stack. If that function calls another function, the new function's frame goes on top of it. When a function finishes executing its frame is popped off the stack, and control goes back to whatever function is now on top. This continues until the call stack is completely empty.
 ----
  ## What are microtasks and macrotasks, and how they are scheduled?
- Microtasks and macrotasks are the two queues JavaScript uses to hold asynchronous callbacks until the call stack is free to run them. They exist because asynchronous work can't just interrupt the stack rather it has to wait its turn in line. The two queues aren't equal,they have different priority.
+Microtasks and macrotasks are the two queues JavaScript uses to hold asynchronous callbacks until the call stack is free to run them. They exist because asynchronous work can't just interrupt the stack rather it has to wait its turn in line. The two queues aren't equal,they have different priority.
 
  ### Microtasks includes:
 ----
