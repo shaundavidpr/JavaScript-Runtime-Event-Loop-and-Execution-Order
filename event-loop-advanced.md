@@ -44,8 +44,7 @@ Once the call stack becomes empty, the engine doesn't just grab the next macrota
 
 They behave differently because they don't land in the same queue, and the two queues aren't treated equally. One queue is always drained completely before the other gets a single turn.
 The scheduling rule that causes the difference:
-Once the current synchronous code finishes and the call stack is empty, the engine fully drains the microtask queue — including any new microtasks added while draining — before it's allowed to touch the macrotask queue at all. Only after microtasks are completely empty does it pull one item from the macrotask queue.
-So setTimeout(fn, 0) doesn't mean "run immediately" or even "run next" — it means "run as soon as possible, but only after all synchronous code and every currently pending microtask have finished."
+Once the current synchronous code finishes and the call stack is empty, the engine fully drains the microtask queue including any new microtasks added while draining before it's allowed to touch the macrotask queue at all. Only after microtasks are completely empty does it pull one item from the macrotask queue.
 
 A microtask and a macrotask both just run a function when their turn comes. The difference is that microtask queue gets exhaustively processed every single time the stack clears, before the macrotask queue is even considered. That guarantee is what makes Promise based code ahead of setTimeout-based code, no matter how the timings or delays are written.
 
